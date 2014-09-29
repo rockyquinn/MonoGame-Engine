@@ -10,7 +10,7 @@ namespace MonoGame_Game_Engine
         public static int timer = 0;
 
 
-        public static Dictionary<String, CollisionObject> COLLISION_OBJECTS;
+        public static Dictionary<String, CollisionObject> COLLISION_OBJECTS = new Dictionary<string,CollisionObject>();
 
 
         /// <summary>
@@ -32,14 +32,19 @@ namespace MonoGame_Game_Engine
         /// </summary>
         private static void checkCollisions()
         {
-            if (MainState.isCurrent)
+            foreach(String key1 in COLLISION_OBJECTS.Keys)
             {
-            }
-            else if (GameState.isCurrent)
-            {
-            }
-            else if (OptionState.isCurrent)
-            {
+                foreach (String key2 in COLLISION_OBJECTS.Keys)
+                {
+                    if (COLLISION_OBJECTS[key1].Equals(COLLISION_OBJECTS[key2]))
+                        continue;
+                    if(COLLISION_OBJECTS[key1].compareTo(COLLISION_OBJECTS[key2]) &&
+                        COLLISION_OBJECTS[key1].isCollidable                      &&
+                        COLLISION_OBJECTS[key2].isCollidable)
+                    {
+                        //Collision happened\\
+                    }
+                }
             }
         }
 
