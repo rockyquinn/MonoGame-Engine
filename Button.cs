@@ -16,7 +16,7 @@ namespace MonoGame_Game_Engine
         /// <summary>
         /// Determines what state will be changeed to when clicked
         /// </summary>
-        private String stateChange;
+        private State stateChange;
         /// <summary>
         /// Boolean representing whether or not button is selected.
         /// </summary>
@@ -35,7 +35,7 @@ namespace MonoGame_Game_Engine
         /// <param name="h">(int) Height</param>
         /// <param name="state">(String) State to change to if button is clicked</param>
         /// <param name="im">(Texture2D) Image</param>
-        public Button(int nx, int ny, int w, int h, String state, Texture2D im)
+        public Button(int nx, int ny, int w, int h, State state, Texture2D im)
             : base("Button", nx, ny, im, 1)
         {
             selected = false;
@@ -72,7 +72,7 @@ namespace MonoGame_Game_Engine
         /// Sets clicked to true
         /// </summary>
         /// <returns>(String) stateChange</returns>
-        public String click()
+        public State click()
         {
             clicked = true;
             return stateChange;
