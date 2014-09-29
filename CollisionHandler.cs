@@ -36,13 +36,14 @@ namespace MonoGame_Game_Engine
             {
                 foreach (String key2 in COLLISION_OBJECTS.Keys)
                 {
-                    if (COLLISION_OBJECTS[key1].Equals(COLLISION_OBJECTS[key2]))
+                    if (COLLISION_OBJECTS[key1].Equals(COLLISION_OBJECTS[key2]))//Comparing same object\\
                         continue;
                     if(COLLISION_OBJECTS[key1].compareTo(COLLISION_OBJECTS[key2]) &&
-                        COLLISION_OBJECTS[key1].isCollidable                      &&
-                        COLLISION_OBJECTS[key2].isCollidable)
-                    {
-                        //Collision happened\\
+                            COLLISION_OBJECTS[key1].isCollidable                  &&
+                            COLLISION_OBJECTS[key2].isCollidable)
+                    {//Collision Happened\\
+                        COLLISION_OBJECTS[key1].collision(COLLISION_OBJECTS[key2].position);
+                        COLLISION_OBJECTS[key2].collision(COLLISION_OBJECTS[key1].position);
                     }
                 }
             }
