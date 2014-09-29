@@ -1,4 +1,4 @@
 MonoGame-Engine
 ===============
 
-A game engine written in C#
+A 2D game engine written in C#
