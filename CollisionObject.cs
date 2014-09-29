@@ -66,7 +66,7 @@ namespace MonoGame_Game_Engine
             /// <summary>
             /// Animation counter
             /// </summary>
-            private int aniCount;
+            private int aniCount = 0;
 
             /// <summary>
             /// The maximum value of ani count;
@@ -101,6 +101,7 @@ namespace MonoGame_Game_Engine
             /// <param name="ny">y position</param>
             /// <param name="anims">images for the animations</param>
             /// <param name="still">standing image</param>
+            /// <param name="maxAni">Maximum animation counter constant</param>
             public CollisionObject(String typ, int nx, int ny, Dictionary<String, Texture2D> anims, Texture2D still, int maxAni)
             {
                 type = typ;
@@ -109,7 +110,6 @@ namespace MonoGame_Game_Engine
                 position = new Vector2(nx, ny);
                 animations = anims;
                 animations.Add("stand", still);
-                aniCount = 0;
                 maxAniCount = maxAni;
                 facingLeft = true;
             }
@@ -131,7 +131,6 @@ namespace MonoGame_Game_Engine
                 height = image.Height;
                 animations = new Dictionary<String, Texture2D>();
                 animations.Add("stand", image);
-                aniCount = 0;
                 maxAniCount = maxAni;
                 facingLeft = true;
             }
@@ -149,43 +148,8 @@ namespace MonoGame_Game_Engine
                 y = ny;
                 position = new Vector2(nx, ny);
                 animations = new Dictionary<String, Texture2D>();
-                aniCount = 0;
                 maxAniCount = maxAni;
                 facingLeft = true;
-            }
-
-
-            /// <summary>
-            /// Gets the x position of the object
-            /// </summary>
-            /// <returns>(int) x position</returns>
-            public float getX() { return x; }
-
-            /// <summary>
-            /// Sets the x position of the object
-            /// </summary>
-            /// <param name="nx">New x value</param>
-            public void setX(int nx)
-            {
-                x = nx;
-                position = new Vector2(x, y);
-            }
-
-
-            /// <summary>
-            /// Gets the y position of the object
-            /// </summary>
-            /// <returns>(int) y position</returns>
-            public float getY() { return y; }
-
-            /// <summary>
-            /// Sets the y position
-            /// </summary>
-            /// <param name="ny">New y position</param>
-            public void setY(int ny)
-            {
-                y = ny;
-                position = new Vector2(x, y);
             }
 
             /// <summary>
